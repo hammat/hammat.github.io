@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name='robots' content='noindex, nofollow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'/>
+    <title>Hammat - Tip edit in iframe</title>
+    <style>
+        body { margin: 0; font-family: system-ui, sans-serif; background: #f6f1e7; color: #2b2b2b; }
+        header, footer { padding: 24px 16px; background: #e4d6b8; }
+        main { max-width: 900px; margin: 0 auto; padding: 16px; }
+        .filler p { line-height: 1.6; }
+        #height-log { position: fixed; right: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, .8); color: #7CFC9A; font: 12px monospace; padding: 6px 8px; border-radius: 4px; }
+    </style>
+</head>
+<body>
+<header>
+    <strong>Sou des écoles — Noël</strong> (fake host page, IT9PE1-34152)
+</header>
+<main>
+    <section class="filler">
+        <h1>Vente de sapins et croziflette</h1>
+        <p>Cette page imite un site WordPress qui intègre un formulaire AssoConnect avec le code d'intégration moderne. Le contenu au-dessus et en dessous du formulaire permet de vérifier où s'ouvrent les fenêtres du pourboire sur smartphone.</p>
+        <p>Parcours : choisir un montant, remplir ses informations, passer à l'étape de paiement, puis toucher « Modifier » et « Pourquoi donner » sous le pourboire.</p>
+        <p>Le compteur en bas à droite affiche chaque hauteur que le formulaire envoie à la page : il doit se stabiliser, pas grimper en continu.</p>
+        <p>Lorem du site hôte : actualités de l'école, calendrier des sorties, photos du marché de Noël, informations pratiques pour les familles, horaires de la garderie et du périscolaire.</p>
+    </section>
+
+    <div class="iframe-asc-container" data-type="collect" data-collect-id="01M7ASAAS6M9W77PSA73MT81GA"></div>
+    <script src="https://assoconnect-uat-app-service-b-tip-edit-iframe.azurewebsites.net/public/build/js/iframe.js"></script>
+
+    <section class="filler">
+        <h2>Après le formulaire</h2>
+        <p>Merci pour votre soutien ! Les sapins seront à retirer dans la cour de l'école le samedi matin. Pour toute question, contactez le bureau de l'association.</p>
+        <p>Contenu du site hôte sous le formulaire : mentions, partenaires, liens vers les réseaux sociaux.</p>
+    </section>
+</main>
+<footer>Pied de page du site hôte</footer>
+<div id="height-log">iframe height: —</div>
+<script>
+    // Display only: the embed script itself applies the height.
+    let updates = 0;
+    window.addEventListener("message", function (event) {
+        if (event.data && event.data.action === "iframe.height") {
+            updates += 1;
+            document.getElementById("height-log").textContent = "iframe height: " + event.data.height + "px (update #" + updates + ")";
+        }
+    });
+</script>
+</body>
+</html>
